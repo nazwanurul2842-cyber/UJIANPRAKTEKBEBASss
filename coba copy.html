@@ -1,0 +1,109 @@
+<!-- GANTI TOMBOL HERO JADI YANG INI -->
+<section id="home" class="hero text-center">
+  <div class="container" data-aos="zoom-in">
+    <h1 class="display-1 fw-bold rainbow-text mb-4">KELAS 12, INI SAATNYA KITA MELEDAK!!</h1>
+    <h2 class="display-3 mb-5 text-white">Ujian? SBMPTN? SNMPTN? CAPEK?? GUE TANTANG KAMU MELEDAK SEKARANG!!</h2>
+    <button class="btn btn-danger btn-gede text-white shadow-lg" onclick="meledakSemangatKelas12()">
+      KLIK INI BUAT SEMANGAT MELEDAK!!!
+    </button>
+  </div>
+  <li><a class="nav-link" href="coba.html">HOME</a></li>
+</section>
+
+<!-- TAMBAHIN INI DI DALAM <head> atau sebelum </body> -->
+<script>
+// ANIMASI MELEDAK KHUSUS KELAS 12
+function meledakSemangatKelas12() {
+  // Bikin layar hitam penuh
+  const overlay = document.createElement('div');
+  overlay.style.position = 'fixed';
+  overlay.style.top = 0; overlay.style.left = 0;
+  overlay.style.width = '100vw'; overlay.style.height = '100vh';
+  overlay.style.background = 'radial-gradient(circle, #000, #220033)';
+  overlay.style.zIndex = 99999;
+  overlay.style.display = 'flex';
+  overlay.style.alignItems = 'center';
+  overlay.style.justifyContent = 'center';
+  overlay.style.flexDirection = 'column';
+  overlay.style.color = 'white';
+  overlay.style.textAlign = 'center';
+  overlay.style.overflow = 'hidden';
+  document.body.appendChild(overlay);
+
+  // Tulisan BOOM gede
+  const boom = document.createElement('h1');
+  boom.textContent = 'B O O M ! ! !';
+  boom.style.fontSize = '15vw';
+  boom.style.fontWeight = '900';
+  boom.style.color = '#ff006e';
+  boom.style.textShadow = '0 0 50px #ff006e, 0 0 100px #ff006e';
+  boom.style.animation = 'boom 1.5s ease-out forwards';
+  overlay.appendChild(boom);
+  
+
+  // Teks semangat kelas 12
+  setTimeout(() => {
+    overlay.innerHTML = `
+      <div style="animation: fadeIn 2s forwards;">
+        <h1 class="rainbow-text display-1 fw-bold mb-4">KELAS 12, DENGAR INI!!</h1>
+        <h2 class="display-4 text-warning mb-5">TAHUN INI BUKAN TAHUN BIASA.<br>INI TAHUN PERANG KAMU!!</h2>
+        <p class="fs-1 text-white" style="max-width:90%;">
+          Capek belajar sampe subuh?<br>
+          Nangis di kamar mandi?<br>
+          Takut nggak lulus? Takut nggak masuk PTN impian?<br><br>
+          
+          <span class="text-danger fw-bold fs-1">ITU TANDA KAMU LAGI HIDUP, BRO!!</span><br><br>
+          
+          Setiap tetes keringatmu sekarang = tiket masuk kampus impian.<br>
+          Setiap malam begadang = langkah menuju nama kamu di papan pengumuman.<br>
+          Setiap rasa takut = bukti kamu lagi berjuang buat masa depan yang nggak main-main.<br><br>
+          
+          <span class="text-success fs-1">30 HARI LAGI, 60 HARI LAGI, 100 HARI LAGI…<br>
+          KAMU AKAN BERDIRI DI SANA BILANG:<br>
+          “GUE DULU PERNAH TAKUT BANGET, TAPI GUE TETEP JALAN!!”</span><br><br><br>
+          
+          <h1 class="text-warning display-2 fw-bold">INI BUKAN UJIAN.<br>INI MEDAN PERANG KAMU.</h1>
+          <h1 class="text-danger display-1">DAN KAMU AKAN MENANG!!</h1>
+        </p>
+        <button onclick="this.parentElement.parentElement.remove()" 
+                class="btn btn-light btn-lg mt-5 px-5 py-3 fs-3">
+          AKU SIAP PERANG!!! TUTUP & GASKAN BELAJAR SEKARANG!!
+        </button>
+      </div>
+    `;
+    
+    // Kembang api terus-terusan
+    let fireworks = setInterval(() => {
+      for(let i=0; i<20; i++) {
+        const f = document.createElement('div');
+        f.textContent = ['','','','','',''][Math.floor(Math.random()*6)];
+        f.style.position = 'fixed';
+        f.style.fontSize = '4rem';
+        f.style.left = Math.random()*100 + 'vw';
+        f.style.top = Math.random()*100 + 'vh';
+        f.style.color = ['#ff006e','#00ff88','#ffff00','#ff6600'][Math.floor(Math.random()*4)];
+        f.style.pointerEvents = 'none';
+        f.style.animation = 'firework 2s ease-out forwards';
+        overlay.appendChild(f);
+        setTimeout(() => f.remove(), 2000);
+      }
+    }, 300);
+
+    // Berhenti kembang api setelah 15 detik
+    setTimeout(() => clearInterval(fireworks), 15000);
+  }, 1500);
+}
+</script>
+
+
+<style>
+@keyframes boom {
+  0% { transform: scale(0) rotate(0deg); opacity: 0; }
+  50% { transform: scale(1.5) rotate(10deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
